@@ -59,7 +59,7 @@ app.post("/note", function(req, res) {
   });
 });
 
-app.delete("/notes/:id", function(req, res) {
+app.delete("/note/:id", function(req, res) {
     const noteId = dbJSON.findIndex(item => {item.id === req.params.id});
     dbJSON.splice(noteId, 1);
     res.json(true)
