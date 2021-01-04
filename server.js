@@ -3,7 +3,7 @@
 const express = require("express");
 const { v4: uuidv4 } = require('uuid');
 const fs = require("fs");
-const dbJSON = require("./db.json");
+const dbJSON = require("./db/db.json");
 const path = require("path");
 
 // Sets up the Express App
@@ -13,6 +13,7 @@ const PORT = process.env.PORT || 3000;
 
 // Sets up the Express app to handle data parsing
 app.use(express.urlencoded({ extended: true }));
+app.use(express.static("public"));
 app.use(express.json());
 
 
@@ -23,11 +24,15 @@ app.use(express.json());
 // Basic route that sends the user first to the AJAX Page
 
 app.get("/", function(req, res) {
-  res.send("Proof of concept of storing data");
+  res.sendFile(path.join(__dirname, "/public/index.html"));
+});
+
+app.get("/notes", function(req, res) {
+  res.sendFile(path.join(__dirname, "/public/notes.html"));
 });
 
 app.get("/note", function(req, res) {
-  res.json(dbJSON);
+    res.json(dbJSON);
 });
 
 app.post("/note", function(req, res) {
