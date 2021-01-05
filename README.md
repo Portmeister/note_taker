@@ -37,7 +37,7 @@ You will not be able to deploy your server side code on GitHub pages. This app s
 
 You are required to submit the following:
 
-* The URL of the deployed application. This should be the link to the url provided by Heroku. Be sure not to submit a link to the Heroku dashboard.
+* The URL of the deployed application: https://polar-hamlet-71245.herokuapp.com/
 
 * The URL of the GitHub repository: https://github.com/Portmeister/note_taker
 
